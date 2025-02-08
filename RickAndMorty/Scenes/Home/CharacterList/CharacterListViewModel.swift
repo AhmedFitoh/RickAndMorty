@@ -14,11 +14,11 @@ final class CharacterListViewModel: ObservableObject {
         case loaded
         case error(String)
     }
-    
+
     @Published private(set) var state: State = .idle
     @Published private(set) var selectedStatus: CharacterStatus?
     @Published private(set) var characters: [CharacterModel] = []
-    
+
     weak var coordinator: CharacterListCoordinator?
     private let service: CharactersNetworkServiceProtocol
     private var currentPage = 1
@@ -70,6 +70,6 @@ final class CharacterListViewModel: ObservableObject {
     }
     
     func didSelectCharacter(_ character: CharacterModel) {
-        // navigate to character details view
+        coordinator?.showCharacterDetail(character)
     }
 }

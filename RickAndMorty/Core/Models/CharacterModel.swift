@@ -14,13 +14,19 @@ struct CharacterModel: Codable {
     let species: String?
     let gender: Gender?
     let image: String?
-    
+    let location: LocationModel?
+
     enum Gender: String, Codable {
         case male = "Male"
         case female = "Female"
         case unknown = "unknown"
         case genderless = "Genderless"
     }
+}
+
+struct LocationModel: Codable {
+    let name: String?
+    let url: String?
 }
 
 enum CharacterStatus: String, Codable, CaseIterable {

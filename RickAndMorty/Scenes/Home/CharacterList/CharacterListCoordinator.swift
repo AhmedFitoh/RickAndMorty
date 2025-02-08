@@ -24,4 +24,19 @@ final class CharacterListCoordinator: Coordinator {
         let viewController = CharacterListViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: false)
     }
+    
+//    func showCharacterDetail(_ character: CharacterModel) {
+//        let detailViewModel = CharacterDetailViewModel(character: character)
+//        let detailView = CharacterDetailView(viewModel: detailViewModel)
+//        let hostingController = UIHostingController(rootView: detailView)
+//        navigationController.pushViewController(hostingController, animated: true)
+//    }
+//    
+        func showCharacterDetail(_ character: CharacterModel) {
+            let detailViewModel = CharacterDetailViewModel(character: character)
+            let detailView = CharacterDetailView(viewModel: detailViewModel)
+            let hostingController = UIHostingController(rootView: detailView)
+            navigationController.pushViewController(hostingController, animated: true)
+        }
+    
 }

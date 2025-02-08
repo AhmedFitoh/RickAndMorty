@@ -13,15 +13,7 @@ struct CharacterRowView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            AsyncImage(url: URL(string: character.image ?? "")) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Color.gray.opacity(0.3)
-            }
-            .frame(width: 80, height: 80)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            characterImage()
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(character.name ?? "")
@@ -45,5 +37,17 @@ struct CharacterRowView: View {
 
         .padding(.horizontal, 16)
         .padding(.vertical, 4)
+    }
+    
+    private func characterImage() -> some View {
+        AsyncImage(url: URL(string: character.image ?? "")) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        } placeholder: {
+            Color.gray.opacity(0.3)
+        }
+        .frame(width: 80, height: 80)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
