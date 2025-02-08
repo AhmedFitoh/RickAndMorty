@@ -19,10 +19,11 @@ struct CharacterModel: Codable {
         case male = "Male"
         case female = "Female"
         case unknown = "unknown"
+        case genderless = "Genderless"
     }
 }
 
-enum CharacterStatus: String, Codable {
+enum CharacterStatus: String, Codable, CaseIterable {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"
